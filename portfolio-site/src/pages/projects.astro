@@ -1,0 +1,87 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const projectCards = [
+  {
+    title: "National Railway Museum",
+    subtitle: "Cybersecurity Uplift Program",
+    points: [
+      "Infrastructure Security",
+      "Identity & Access Management",
+      "Governance Development",
+      "Network Segmentation",
+    ],
+    link: "/projects/nrm",
+  },
+  {
+    title: "Network Segmentation",
+    subtitle: "Architecture Design",
+    points: [
+      "Security Zone Design",
+      "Firewall Access Control",
+      "Lateral Movement Reduction",
+      "Infrastructure Protection",
+    ],
+    link: "/projects/network-segmentation",
+  },
+  {
+    title: "Identity & Access Management",
+    subtitle: "Security Improvement Program",
+    points: [
+      "MFA Assessment",
+      "Administrative Account Review",
+      "Authentication Controls",
+      "Security Recommendations",
+    ],
+    link: "/projects/iam",
+  },
+  {
+    title: "Cybersecurity Governance",
+    subtitle: "Policy and Procedure Development",
+    points: [
+      "Access Control Procedures",
+      "Password Standards",
+      "Acceptable Use Guidelines",
+      "Security Awareness Material",
+    ],
+    link: "/projects/governance",
+  },
+  {
+    title: "Cyber Security Development Plan",
+    subtitle: "University Capstone Project",
+    points: [
+      "Risk Assessment",
+      "NIST CSF Mapping",
+      "Security Recommendations",
+      "Cybersecurity Roadmap",
+    ],
+    link: "/projects/capstone",
+  },
+];
+---
+
+<MainLayout title="Projects | Vinula Kasthuriarachchi">
+  <h1>Projects</h1>
+
+  <p>
+    Selected cybersecurity projects covering infrastructure security, identity and
+    access management, governance, network segmentation, and cyber risk.
+  </p>
+
+  <section class="project-grid">
+    {projectCards.map((project) => (
+      <article class="project-card">
+        <h2>{project.title}</h2>
+        <p><strong>{project.subtitle}</strong></p>
+
+        <ul>
+          {project.points.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+
+        <a href={project.link}>View Project →</a>
+      </article>
+    ))}
+  </section>
+</MainLayout>

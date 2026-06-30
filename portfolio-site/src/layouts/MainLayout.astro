@@ -1,0 +1,277 @@
+---
+const { title = "Vinula Kasthuriarachchi" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{title}</title>
+
+    <meta
+      name="description"
+      content="Cybersecurity Graduate Portfolio of Vinula Kasthuriarachchi"
+    />
+
+    <meta property="og:title" content={title} />
+
+    <meta
+      property="og:description"
+      content="Cybersecurity Graduate Portfolio"
+    />
+
+    <meta property="og:type" content="website" />
+
+    <style is:global>
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .hero-container {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin: 4rem 0;
+      }
+
+      .hero-image {
+        width: 220px;
+        max-width: 220px;
+        height: auto;
+        border-radius: 12px;
+        border: 2px solid #1e3a5f;
+      }
+
+      .hero-text {
+        max-width: 720px;
+      }
+
+      .subtitle {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .hero-buttons {
+        margin-top: 1.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        margin-right: 12px;
+        border-radius: 8px;
+        border: 1px solid #00bfff;
+        text-decoration: none;
+      }
+
+      @media (max-width: 700px) {
+        .hero-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+      :root {
+        font-family: Inter, Arial, sans-serif;
+        background: #0f172a;
+        color: #e5e7eb;
+      }
+
+      body {
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .site-header {
+        border-bottom: 1px solid #1e293b;
+        background: #020617;
+      }
+
+      .nav {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .brand {
+        font-weight: 700;
+        color: #f8fafc;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      main {
+        max-width: 950px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+      }
+
+      h1, h2, h3, h4 {
+        color: #f8fafc;
+        line-height: 1.25;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        margin-top: 2.5rem;
+        border-bottom: 1px solid #334155;
+        padding-bottom: 0.4rem;
+      }
+
+      h3 {
+        margin-top: 1.8rem;
+      }
+
+      p, li {
+        color: #cbd5e1;
+      }
+
+      strong {
+        color: #f8fafc;
+      }
+
+      article {
+        background: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 16px;
+        padding: 2rem;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #334155;
+        margin: 2rem 0;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .project-card {
+        border: 1px solid #1e3a5f;
+        padding: 1.5rem;
+        border-radius: 12px;
+        background: #071a3d;
+      }
+
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+
+        width: 52px;
+        height: 52px;
+
+        border: none;
+        border-radius: 50%;
+
+        background: #0ea5e9;
+        color: white;
+
+        font-size: 22px;
+        cursor: pointer;
+
+        display: none;
+
+        box-shadow: 0 6px 15px rgba(0,0,0,.35);
+
+        transition: all .25s ease;
+        z-index: 999;
+      }
+
+      #scrollTopBtn:hover {
+        background: #0284c7;
+        transform: translateY(-3px);
+      }
+
+      .site-footer {
+        max-width: 950px;
+        margin: 3rem auto 0;
+        padding: 2rem 1.5rem;
+        border-top: 1px solid #334155;
+        text-align: center;
+        color: #94a3b8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="/">Vinula Kasthuriarachchi</a>
+
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/resume">Resume</a>
+          <a href="/projects">Projects</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Vinula Kasthuriarachchi</p>
+      <p>Built with Astro</p>
+
+      <p>
+        <a href="https://www.linkedin.com/in/vinula-kasthuriarachchi-7b3130154" target="_blank">LinkedIn</a>
+        |
+        <a href="https://github.com/YOURUSERNAME" target="_blank">GitHub</a>
+        |
+        <a href="mailto:vinulakas.98@gmail.com">Email</a>
+      </p>
+    </footer>
+
+    <button id="scrollTopBtn" title="Back to top">
+      ↑
+    </button>
+    <script>
+      const scrollBtn = document.getElementById("scrollTopBtn");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          scrollBtn.style.display = "block";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      });
+
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+    </script>
+  </body>
+</html>
