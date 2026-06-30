@@ -1,30 +1,77 @@
 ---
-const { title = "Vinula Kasthuriarachchi" } = Astro.props;
+const {
+  title = "Vinula Kasthuriarachchi",
+  description = "Cybersecurity graduate portfolio of Vinula Kasthuriarachchi, covering security operations, infrastructure security, cyber risk, governance, and project case studies.",
+  image = "/images/profile/profile.jpeg",
+} = Astro.props;
+
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
+const socialImage = Astro.site ? new URL(image, Astro.site) : image;
+
+type NavItem = {
+  href: string;
+  label: string;
+};
+
+const navItems: NavItem[] = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/resume", label: "Resume" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
+];
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/"
+    ? currentPath === "/"
+    : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
 <html lang="en">
   <head>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>{title}</title>
 
     <meta
       name="description"
-      content="Cybersecurity Graduate Portfolio of Vinula Kasthuriarachchi"
+      content={description}
     />
+
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
     <meta property="og:title" content={title} />
 
     <meta
       property="og:description"
-      content="Cybersecurity Graduate Portfolio"
+      content={description}
     />
 
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
 
     <style is:global>
+      :root {
+        font-family: Inter, Arial, sans-serif;
+        background: #080f1f;
+        color: #e5e7eb;
+        --line: rgba(148, 163, 184, 0.18);
+        --muted: #a9b7ca;
+        --heading: #f8fafc;
+        --accent: #38bdf8;
+        --accent-2: #34d399;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+        --surface: rgba(15, 23, 42, 0.58);
+        --surface-strong: rgba(17, 28, 49, 0.86);
+      }
+
       img {
         max-width: 100%;
         height: auto;
@@ -33,60 +80,123 @@ const { title = "Vinula Kasthuriarachchi" } = Astro.props;
       .hero-container {
         display: flex;
         align-items: center;
-        gap: 3rem;
-        margin: 4rem 0;
+        gap: clamp(1.5rem, 4vw, 3rem);
+        margin: clamp(2rem, 6vw, 4rem) 0;
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 18px;
+        background:
+          linear-gradient(145deg, rgba(7, 26, 61, 0.78), rgba(9, 20, 38, 0.92)),
+          radial-gradient(circle at top right, rgba(52, 211, 153, 0.14), transparent 22rem);
+        padding: clamp(1.25rem, 4vw, 2.25rem);
+        box-shadow: var(--shadow);
       }
 
       .hero-image {
-        width: 220px;
-        max-width: 220px;
-        height: auto;
+        width: clamp(150px, 22vw, 220px);
+        aspect-ratio: 1;
+        object-fit: cover;
         border-radius: 12px;
-        border: 2px solid #1e3a5f;
+        border: 2px solid rgba(56, 189, 248, 0.28);
       }
 
       .hero-text {
         max-width: 720px;
       }
 
+      .hero-text h1 {
+        margin-top: 0;
+      }
+
       .subtitle {
-        font-size: 1.3rem;
+        font-size: clamp(1.05rem, 2vw, 1.3rem);
         font-weight: 600;
       }
 
       .hero-buttons {
         margin-top: 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .hero-focus-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin: 1rem 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .hero-focus-list li {
+        border: 1px solid rgba(56, 189, 248, 0.22);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.62);
+        color: var(--heading);
+        padding: 0.45rem 0.75rem;
+        line-height: 1.2;
       }
 
       .btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        min-width: 150px;
+        min-height: 44px;
         padding: 12px 20px;
-        margin-right: 12px;
         border-radius: 8px;
-        border: 1px solid #00bfff;
+        border: 1px solid var(--accent);
+        background: rgba(14, 165, 233, 0.1);
+        box-shadow: 0 12px 30px rgba(14, 165, 233, 0.12);
+        color: var(--accent);
+        font-weight: 700;
+        line-height: 1.1;
         text-decoration: none;
+        transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
       }
 
-      @media (max-width: 700px) {
-        .hero-container {
-          flex-direction: column;
-          align-items: flex-start;
-        }
+      .btn:hover {
+        border-color: var(--accent-2);
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(52, 211, 153, 0.16));
+        box-shadow: 0 16px 38px rgba(14, 165, 233, 0.18);
+        color: var(--heading);
+        text-decoration: none;
+        transform: translateY(-2px);
       }
-      :root {
-        font-family: Inter, Arial, sans-serif;
-        background: #0f172a;
-        color: #e5e7eb;
+
+      .btn-primary {
+        border-color: transparent;
+        background: linear-gradient(135deg, rgba(56, 189, 248, 0.9), rgba(52, 211, 153, 0.82));
+        color: #02111f;
+      }
+
+      .btn-secondary {
+        background: rgba(15, 23, 42, 0.42);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: hidden;
       }
 
       body {
         margin: 0;
         line-height: 1.7;
+        overflow-x: hidden;
+        text-size-adjust: 100%;
+        background:
+          radial-gradient(circle at top left, rgba(56, 189, 248, 0.1), transparent 30rem),
+          linear-gradient(180deg, #080f1f 0%, #0c1425 42%, #080f1f 100%);
       }
 
       a {
-        color: #38bdf8;
+        color: var(--accent);
         text-decoration: none;
+        text-underline-offset: 0.22em;
       }
 
       a:hover {
@@ -94,89 +204,475 @@ const { title = "Vinula Kasthuriarachchi" } = Astro.props;
       }
 
       .site-header {
-        border-bottom: 1px solid #1e293b;
-        background: #020617;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(135deg, rgba(2, 6, 23, 0.92), rgba(15, 23, 42, 0.84)),
+          rgba(2, 6, 23, 0.92);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 18px 50px rgba(2, 6, 23, 0.34);
       }
 
       .nav {
-        max-width: 1100px;
+        max-width: 1120px;
         margin: 0 auto;
-        padding: 1rem 1.5rem;
+        padding: 0.9rem clamp(1rem, 4vw, 1.5rem);
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 1.5rem;
       }
 
       .brand {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-size: clamp(0.98rem, 2vw, 1.08rem);
         font-weight: 700;
-        color: #f8fafc;
+        color: var(--heading);
+        white-space: nowrap;
+      }
+
+      .brand::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 22px rgba(56, 189, 248, 0.74);
+      }
+
+      .brand:hover {
+        text-decoration: none;
+      }
+
+      .brand:focus-visible,
+      .nav-link:focus-visible,
+      .nav-toggle:focus-visible,
+      .btn:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
       }
 
       .nav-links {
         display: flex;
-        gap: 1rem;
+        gap: 0.25rem;
         flex-wrap: wrap;
+        align-items: center;
+        padding: 0.28rem;
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.72);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+
+      .nav-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        border-radius: 12px;
+        background: rgba(15, 23, 42, 0.78);
+        color: var(--heading);
+        cursor: pointer;
+      }
+
+      .nav-toggle span {
+        width: 18px;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .nav-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 0 0.95rem;
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.94rem;
+        font-weight: 600;
+        line-height: 1;
+        transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--heading);
+        text-decoration: none;
+        background: rgba(56, 189, 248, 0.12);
+        transform: translateY(-1px);
+      }
+
+      .nav-link[aria-current="page"] {
+        color: #02111f;
+        background: linear-gradient(135deg, #8be2ff, #71f2c4);
+        box-shadow: 0 10px 26px rgba(14, 165, 233, 0.24);
       }
 
       main {
         max-width: 950px;
         margin: 0 auto;
-        padding: 3rem 1.5rem;
+        padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 1.5rem);
       }
 
       h1, h2, h3, h4 {
-        color: #f8fafc;
+        color: var(--heading);
         line-height: 1.25;
+        overflow-wrap: anywhere;
+        letter-spacing: 0;
       }
 
       h1 {
-        font-size: 2.4rem;
+        font-size: clamp(2rem, 6vw, 2.65rem);
         margin-bottom: 1rem;
       }
 
       h2 {
-        margin-top: 2.5rem;
-        border-bottom: 1px solid #334155;
+        margin-top: clamp(2rem, 5vw, 2.5rem);
+        border-bottom: 1px solid var(--line);
         padding-bottom: 0.4rem;
+        font-size: clamp(1.35rem, 4vw, 1.6rem);
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 76px;
+        height: 1px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
       }
 
       h3 {
         margin-top: 1.8rem;
+        font-size: clamp(1.12rem, 3vw, 1.3rem);
       }
 
       p, li {
-        color: #cbd5e1;
+        color: var(--muted);
+        overflow-wrap: anywhere;
+      }
+
+      .section-intro {
+        max-width: 720px;
+        margin-top: 0.65rem;
+        color: var(--muted);
+      }
+
+      ul, ol {
+        padding-left: 1.35rem;
       }
 
       strong {
-        color: #f8fafc;
+        color: var(--heading);
       }
 
       article {
-        background: #111827;
-        border: 1px solid #1f2937;
+        background:
+          linear-gradient(180deg, rgba(17, 28, 49, 0.96), rgba(10, 19, 35, 0.98));
+        border: 1px solid var(--line);
         border-radius: 16px;
-        padding: 2rem;
+        padding: clamp(1.1rem, 4vw, 2rem);
+        overflow: hidden;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
       }
 
       hr {
         border: none;
-        border-top: 1px solid #334155;
-        margin: 2rem 0;
+        border-top: 1px solid var(--line);
+        margin: clamp(2rem, 5vw, 3rem) 0;
+      }
+
+      main > section:not(.hero-container, .project-grid, .experience-list) {
+        margin-top: clamp(2.2rem, 5vw, 3.2rem);
       }
 
       .project-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        gap: clamp(1rem, 3vw, 2rem);
+        margin-top: clamp(1.25rem, 4vw, 2rem);
       }
 
       .project-card {
-        border: 1px solid #1e3a5f;
-        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(56, 189, 248, 0.22);
+        padding: clamp(1.15rem, 3vw, 1.5rem);
         border-radius: 12px;
-        background: #071a3d;
+        background:
+          linear-gradient(145deg, rgba(7, 26, 61, 0.95), rgba(13, 30, 52, 0.94));
+        box-shadow: 0 18px 44px rgba(2, 6, 23, 0.2);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      }
+
+      .project-card:hover {
+        border-color: rgba(52, 211, 153, 0.48);
+        box-shadow: 0 24px 60px rgba(2, 6, 23, 0.34);
+        transform: translateY(-4px);
+      }
+
+      .project-card h2 {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-top: 0;
+      }
+
+      .project-card h2::before,
+      .resume-card h3::before,
+      .contact-card h2::before {
+        content: "";
+        flex: 0 0 auto;
+        width: 0.62rem;
+        height: 0.62rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 16px rgba(56, 189, 248, 0.42);
+      }
+
+      .project-card ul {
+        margin-bottom: 1.25rem;
+      }
+
+      .project-card a {
+        margin-top: auto;
+        font-weight: 700;
+      }
+
+      .skill-list,
+      .compact-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .skill-list li,
+      .compact-list li {
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.56);
+        padding: 0.42rem 0.72rem;
+        line-height: 1.25;
+      }
+
+      .feature-card,
+      .content-panel {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background:
+          linear-gradient(145deg, rgba(17, 28, 49, 0.78), rgba(8, 18, 34, 0.88));
+        padding: clamp(1.2rem, 3vw, 1.6rem);
+        box-shadow: 0 16px 42px rgba(2, 6, 23, 0.2);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      }
+
+      .feature-card:hover,
+      .content-panel:hover,
+      .resume-card:hover,
+      .contact-card:hover,
+      .experience-role:hover,
+      .evidence-panel:hover {
+        border-color: rgba(52, 211, 153, 0.42);
+        box-shadow: 0 22px 54px rgba(2, 6, 23, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .feature-card h2,
+      .content-panel h2 {
+        margin-top: 0;
+      }
+
+      .case-study-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 220px;
+        align-items: start;
+        gap: clamp(1rem, 3vw, 1.5rem);
+      }
+
+      .case-study-main {
+        min-width: 0;
+      }
+
+      .case-study-nav {
+        position: sticky;
+        top: 6.5rem;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(15, 23, 42, 0.68);
+        padding: 1rem;
+        box-shadow: 0 16px 38px rgba(2, 6, 23, 0.22);
+      }
+
+      .case-study-nav h2 {
+        margin-top: 0;
+        font-size: 1rem;
+      }
+
+      .case-study-nav ul {
+        display: grid;
+        gap: 0.55rem;
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .case-study-nav a {
+        color: var(--muted);
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+
+      .case-study-nav a:hover {
+        color: var(--heading);
+      }
+
+      .case-study {
+        margin-inline: auto;
+      }
+
+      .case-study > h1:first-child {
+        margin-top: 0;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .case-study h2 {
+        margin-top: clamp(2.4rem, 5vw, 3.2rem);
+      }
+
+      .case-study h2 + p,
+      .case-study h2 + ul {
+        margin-top: 1.1rem;
+      }
+
+      .case-study img {
+        display: block;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        margin: 1.5rem auto;
+        box-shadow: var(--shadow);
+      }
+
+      .case-study figure {
+        margin: 1.5rem 0 0;
+      }
+
+      .case-study figure img {
+        margin-bottom: 0.75rem;
+      }
+
+      .case-study figcaption {
+        color: var(--muted);
+        font-size: 0.92rem;
+        text-align: center;
+      }
+
+      .case-study blockquote {
+        margin-inline: 0;
+        border-left: 3px solid var(--accent-2);
+        padding: 0.75rem 1rem;
+        background: rgba(52, 211, 153, 0.08);
+        border-radius: 0 10px 10px 0;
+      }
+
+      .project-summary {
+        display: grid;
+        gap: 0.75rem;
+        margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+        border: 1px solid rgba(56, 189, 248, 0.22);
+        border-radius: 14px;
+        background:
+          linear-gradient(145deg, rgba(7, 26, 61, 0.9), rgba(10, 20, 36, 0.96));
+        padding: clamp(1.1rem, 3vw, 1.5rem);
+      }
+
+      .project-summary h1 {
+        margin: 0;
+      }
+
+      .project-summary p {
+        max-width: 760px;
+        margin: 0;
+      }
+
+      .evidence-panel {
+        margin: clamp(1.5rem, 4vw, 2.25rem) 0;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(15, 23, 42, 0.52);
+        padding: clamp(1rem, 3vw, 1.35rem);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      }
+
+      .evidence-panel h2 {
+        margin-top: 0;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .contact-hero-panel {
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 14px;
+        background:
+          linear-gradient(145deg, rgba(7, 26, 61, 0.75), rgba(10, 20, 36, 0.92));
+        padding: clamp(1.2rem, 3vw, 1.6rem);
+        box-shadow: 0 16px 42px rgba(2, 6, 23, 0.2);
+      }
+
+      .contact-hero-panel h1 {
+        margin-top: 0;
+      }
+
+      .contact-grid-secondary {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+        margin-top: 1rem;
+      }
+
+      .contact-card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+        padding: 1rem;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      }
+
+      .contact-card h2 {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-top: 0;
       }
 
       #scrollTopBtn {
@@ -204,33 +700,264 @@ const { title = "Vinula Kasthuriarachchi" } = Astro.props;
         z-index: 999;
       }
 
+      #scrollTopBtn.is-visible {
+        display: block;
+      }
+
       #scrollTopBtn:hover {
         background: #0284c7;
         transform: translateY(-3px);
       }
 
       .site-footer {
-        max-width: 950px;
+        max-width: 1120px;
         margin: 3rem auto 0;
-        padding: 2rem 1.5rem;
-        border-top: 1px solid #334155;
-        text-align: center;
-        color: #94a3b8;
+        padding: clamp(1.5rem, 5vw, 2rem) clamp(1rem, 4vw, 1.5rem);
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(180px, 0.8fr) minmax(180px, 0.8fr);
+        gap: 1.25rem;
+        align-items: start;
+      }
+
+      .footer-brand {
+        margin-top: 0;
+        color: var(--heading);
+        font-weight: 800;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem 0.9rem;
+      }
+
+      .footer-links a {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .footer-links a:hover {
+        color: var(--heading);
+      }
+
+      .footer-meta {
+        margin: 1.5rem 0 0;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.12);
+        font-size: 0.92rem;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .hero-container,
+        .content-panel,
+        .feature-card,
+        .project-card,
+        .project-summary,
+        .case-study,
+        .evidence-panel,
+        .resume-card,
+        .experience-role,
+        .contact-hero-panel,
+        .contact-card {
+          animation: fade-up 0.42s ease both;
+        }
+
+        @keyframes fade-up {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+
+      @media (max-width: 1080px) {
+        .case-study-shell {
+          display: block;
+        }
+
+        .case-study-nav {
+          position: static;
+          margin-bottom: 1.25rem;
+        }
+
+        .case-study-nav ul {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 0.9rem;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: center;
+          border-radius: 18px;
+          padding: 0.35rem;
+        }
+
+        .nav-link {
+          flex: 1 1 112px;
+          justify-content: center;
+          padding: 0 0.75rem;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .nav {
+          align-items: center;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 0.7rem;
+        }
+
+        .nav-toggle {
+          display: inline-flex;
+          margin-left: auto;
+        }
+
+        .nav-links {
+          width: 100%;
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(-4px);
+          transition: max-height 0.22s ease, opacity 0.18s ease, transform 0.18s ease;
+        }
+
+        .nav-links.is-open {
+          max-height: 260px;
+          opacity: 1;
+          pointer-events: auto;
+          transform: translateY(0);
+        }
+
+        .hero-container {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 1.25rem;
+          border-radius: 14px;
+        }
+
+        .hero-image {
+          width: min(58vw, 180px);
+          align-self: center;
+        }
+
+        .hero-text {
+          width: 100%;
+        }
+
+        .hero-buttons,
+        .hero-buttons .btn {
+          width: 100%;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        article {
+          border-radius: 12px;
+        }
+
+        #scrollTopBtn {
+          right: 16px;
+          bottom: 16px;
+          width: 46px;
+          height: 46px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .nav {
+          padding: 0.85rem 1rem;
+        }
+
+        .brand {
+          white-space: normal;
+          line-height: 1.3;
+        }
+
+        .nav-links {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.35rem;
+          border-radius: 16px;
+        }
+
+        .nav-link {
+          min-height: 42px;
+          min-width: 0;
+          font-size: 0.9rem;
+        }
+
+        main {
+          padding-top: 1.5rem;
+        }
+
+        h1 {
+          margin-top: 0;
+        }
+
+        .project-card h2 {
+          margin-top: 0;
+        }
+
+        .footer-grid,
+        .footer-links {
+          display: grid;
+        }
+
+        .footer-meta {
+          text-align: left;
+        }
       }
     </style>
   </head>
 
   <body>
     <header class="site-header">
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="/">Vinula Kasthuriarachchi</a>
 
-        <div class="nav-links">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/resume">Resume</a>
-          <a href="/projects">Projects</a>
-          <a href="/contact">Contact</a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <div class="nav-links" id="primary-navigation">
+          {navItems.map((item) => (
+            <a
+              class="nav-link"
+              href={item.href}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       </nav>
     </header>
@@ -240,33 +967,70 @@ const { title = "Vinula Kasthuriarachchi" } = Astro.props;
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 Vinula Kasthuriarachchi</p>
-      <p>Built with Astro</p>
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Vinula Kasthuriarachchi</p>
+          <p>Cybersecurity graduate portfolio focused on infrastructure security, risk, governance, and practical uplift work.</p>
+        </div>
 
-      <p>
-        <a href="https://www.linkedin.com/in/vinula-kasthuriarachchi-7b3130154" target="_blank">LinkedIn</a>
-        |
-        <a href="https://github.com/YOURUSERNAME" target="_blank">GitHub</a>
-        |
-        <a href="mailto:vinulakas.98@gmail.com">Email</a>
-      </p>
+        <nav class="footer-links" aria-label="Footer navigation">
+          {navItems.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+
+        <div class="footer-links" aria-label="Contact links">
+          <a href="https://www.linkedin.com/in/vinula-kasthuriarachchi-7b3130154" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com/vinula98" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="mailto:vinulakas.98@gmail.com">Email</a>
+          <a href="tel:+61404781574">Mobile</a>
+        </div>
+      </div>
+
+      <p class="footer-meta">© 2026 Vinula Kasthuriarachchi.</p>
     </footer>
 
-    <button id="scrollTopBtn" title="Back to top">
+    <button id="scrollTopBtn" type="button" aria-label="Back to top" title="Back to top">
       ↑
     </button>
     <script>
       const scrollBtn = document.getElementById("scrollTopBtn");
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
 
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          scrollBtn.style.display = "block";
-        } else {
-          scrollBtn.style.display = "none";
+      // Keep the mobile menu state synced for mouse, keyboard, and link navigation.
+      const closeNav = () => {
+        navLinks?.classList.remove("is-open");
+        navToggle?.setAttribute("aria-expanded", "false");
+      };
+
+      navToggle?.addEventListener("click", () => {
+        if (!navLinks) {
+          return;
+        }
+
+        const isOpen = navLinks.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      navLinks?.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLAnchorElement) {
+          closeNav();
         }
       });
 
-      scrollBtn.addEventListener("click", () => {
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeNav();
+        }
+      });
+
+      // Use a class instead of inline styles so CSS remains the source of truth.
+      window.addEventListener("scroll", () => {
+        scrollBtn?.classList.toggle("is-visible", window.scrollY > 300);
+      });
+
+      scrollBtn?.addEventListener("click", () => {
         window.scrollTo({
           top: 0,
           behavior: "smooth"

@@ -60,7 +60,10 @@ const projectCards = [
 ];
 ---
 
-<MainLayout title="Projects | Vinula Kasthuriarachchi">
+<MainLayout
+  title="Projects | Vinula Kasthuriarachchi"
+  description="Selected cybersecurity projects by Vinula Kasthuriarachchi covering infrastructure security, identity and access management, governance, network segmentation, and cyber risk."
+>
   <h1>Projects</h1>
 
   <p>
@@ -74,13 +77,13 @@ const projectCards = [
         <h2>{project.title}</h2>
         <p><strong>{project.subtitle}</strong></p>
 
-        <ul>
+        <ul class="compact-list">
           {project.points.map((point) => (
             <li>{point}</li>
           ))}
         </ul>
 
-        <a href={project.link}>View Project →</a>
+        <a href={project.link} class="btn btn-secondary">View Project</a>
       </article>
     ))}
   </section>

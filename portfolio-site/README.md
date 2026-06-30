@@ -1,43 +1,65 @@
-# Astro Starter Kit: Minimal
+# Vinula Kasthuriarachchi Portfolio
+
+Static cybersecurity portfolio built with Astro.
+
+## Overview
+
+This site presents cybersecurity experience, resume details, contact information, and selected project case studies covering infrastructure security, governance, identity and access management, network segmentation, and cyber risk.
+
+## Requirements
+
+- Node.js 22.12 or later
+- npm
+
+## Local Development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+The development server starts at:
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+http://localhost:4321
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Production Build
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```sh
+npm run build
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+Astro writes the static output to:
 
-## 🧞 Commands
+```text
+dist/
+```
 
-All commands are run from the root of the project, from a terminal:
+## Preview Production Build
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```sh
+npm run preview
+```
 
-## 👀 Want to learn more?
+## Deployment Notes
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project can be deployed to static hosting providers such as Netlify, Vercel, Cloudflare Pages, or GitHub Pages.
+
+Recommended build settings:
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Node version: `22.12.0` or later
+
+## Repository Hygiene
+
+The `.gitignore` excludes generated build output, Astro cache files, dependencies, logs, environment files, and local IDE/system files.
+
+Do not commit:
+
+- `node_modules/`
+- `dist/`
+- `.astro/`
+- `.env`
+- `.env.production`

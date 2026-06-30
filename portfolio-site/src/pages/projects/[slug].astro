@@ -13,10 +13,101 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+const hasPublicEvidence = project.id === "nrm";
+
+type CaseStudyLink = {
+  href: string;
+  label: string;
+};
+
+const caseStudyNavigation: Record<string, CaseStudyLink[]> = {
+  nrm: [
+    { href: "#project-overview", label: "Overview" },
+    { href: "#project-highlights", label: "Highlights" },
+    { href: "#approach", label: "Approach" },
+    { href: "#key-deliverables", label: "Deliverables" },
+    { href: "#outcomes", label: "Outcomes" },
+    { href: "#public-evidence", label: "Evidence" },
+  ],
+  "network-segmentation": [
+    { href: "#project-overview", label: "Overview" },
+    { href: "#the-challenge", label: "Challenge" },
+    { href: "#approach", label: "Approach" },
+    { href: "#solution-design", label: "Solution Design" },
+    { href: "#outcomes", label: "Outcomes" },
+  ],
+  iam: [
+    { href: "#project-overview", label: "Overview" },
+    { href: "#the-challenge", label: "Challenge" },
+    { href: "#assessment-activities", label: "Assessment" },
+    { href: "#recommendations", label: "Recommendations" },
+    { href: "#outcomes", label: "Outcomes" },
+  ],
+  governance: [
+    { href: "#project-overview", label: "Overview" },
+    { href: "#approach", label: "Approach" },
+    { href: "#governance-deliverables", label: "Deliverables" },
+    { href: "#security-awareness-initiative", label: "Awareness" },
+    { href: "#outcomes", label: "Outcomes" },
+  ],
+  capstone: [
+    { href: "#project-overview", label: "Overview" },
+    { href: "#objectives", label: "Objectives" },
+    { href: "#assessment-activities", label: "Assessment" },
+    { href: "#key-deliverables", label: "Deliverables" },
+    { href: "#outcomes", label: "Outcomes" },
+  ],
+};
+
+const caseStudyLinks = caseStudyNavigation[project.id] ?? [];
 ---
 
-<MainLayout title={`${project.data.title} | Vinula Kasthuriarachchi`}>
-  <article>
-    <Content />
-  </article>
+<MainLayout
+  title={`${project.data.title} | Vinula Kasthuriarachchi`}
+  description={project.data.description}
+  image={hasPublicEvidence ? "/images/nrm/proposed-network-segmented-design.png" : "/images/profile/profile.jpeg"}
+>
+  <div class="case-study-shell">
+    <div class="case-study-main">
+      <section class="project-summary" aria-label="Project summary">
+        <h2>Project Summary</h2>
+        <p>{project.data.description}</p>
+      </section>
+
+      <article class="case-study">
+        <Content />
+
+        {hasPublicEvidence && (
+          <section id="public-evidence" class="evidence-panel" aria-label="Public project evidence">
+            <h2>Public Evidence</h2>
+            <p>
+              Sanitised visual evidence available for this project.
+            </p>
+            <figure>
+              <img
+                src="/images/nrm/proposed-network-segmented-design.png"
+                alt="Proposed segmented network design for the National Railway Museum project"
+              />
+              <figcaption>
+                Proposed segmented network design, sanitised for public portfolio use.
+              </figcaption>
+            </figure>
+          </section>
+        )}
+      </article>
+    </div>
+
+    {caseStudyLinks.length > 0 && (
+      <aside class="case-study-nav" aria-label="Case study navigation">
+        <h2>On This Page</h2>
+        <ul>
+          {caseStudyLinks.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    )}
+  </div>
 </MainLayout>

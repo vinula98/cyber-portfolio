@@ -2,45 +2,65 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Contact | Vinula Kasthuriarachchi">
+<MainLayout
+  title="Contact | Vinula Kasthuriarachchi"
+  description="Contact Vinula Kasthuriarachchi for cybersecurity opportunities, graduate programs, networking, or collaboration."
+>
+  <section class="contact-hero-panel">
+    <h1>Contact</h1>
 
-<h1>Contact</h1>
+    <p>
+      Feel free to reach out regarding cybersecurity opportunities,
+      graduate programs, networking, or collaboration.
+    </p>
+  </section>
 
-<p>
-Feel free to reach out regarding cybersecurity opportunities,
-graduate programs, networking, or collaboration.
-</p>
+  <section class="contact-grid" aria-label="Primary contact details">
+    <article class="contact-card">
+      <h2>Email</h2>
+      <p>
+        <a href="mailto:vinulakas.98@gmail.com">vinulakas.98@gmail.com</a>
+      </p>
+    </article>
 
-<h2>Email</h2>
+    <article class="contact-card">
+      <h2>Mobile</h2>
+      <p>
+        <a href="tel:+61404781574">0404781574</a>
+      </p>
+    </article>
+  </section>
 
-<p>
-your-email-here
-</p>
+  <section class="contact-grid contact-grid-secondary" aria-label="Online profiles and location">
+    <article class="contact-card">
+      <h2>LinkedIn</h2>
+      <p>
+        <a href="https://www.linkedin.com/in/vinula-kasthuriarachchi-7b3130154" target="_blank" rel="noreferrer">
+          www.linkedin.com/in/vinula-kasthuriarachchi-7b3130154
+        </a>
+      </p>
+    </article>
 
-<h2>LinkedIn</h2>
+    <article class="contact-card">
+      <h2>GitHub</h2>
+      <p>
+        <a href="https://github.com/vinula98" target="_blank" rel="noreferrer">
+          GitHub Profile
+        </a>
+      </p>
+    </article>
 
-<p>
-your-linkedin-url
-</p>
+    <article class="contact-card">
+      <h2>Location</h2>
+      <p>Adelaide, South Australia</p>
+    </article>
+  </section>
 
-<h2>GitHub</h2>
+  <section class="content-panel">
+    <h2>Availability</h2>
 
-<p>
-  <a href="https://github.com/YOURUSERNAME" target="_blank">
-    GitHub Profile
-  </a>
-</p>
-
-<h2>Location</h2>
-
-<p>
-Adelaide, South Australia
-</p>
-
-<h2>Availability</h2>
-
-<p>
-Whether you'd like to discuss cybersecurity, collaborate on a project, or explore employment opportunities, I'd be happy to connect.
-</p>
-
+    <p>
+      Whether you'd like to discuss cybersecurity, collaborate on a project, or explore employment opportunities, I'd be happy to connect.
+    </p>
+  </section>
 </MainLayout>

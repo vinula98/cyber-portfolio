@@ -2,12 +2,171 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Resume | Vinula Kasthuriarachchi">
+<MainLayout
+  title="Resume | Vinula Kasthuriarachchi"
+  description="Resume of Vinula Kasthuriarachchi, cybersecurity graduate with experience in cybersecurity assessment, infrastructure security, governance, IAM, and software engineering."
+>
+<style>
+  .experience-list {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    padding-left: 1.15rem;
+  }
 
-<p>
+  /* The timeline rail and dots are decorative; the role text remains plain HTML. */
+  .experience-list::before {
+    content: "";
+    position: absolute;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    left: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--accent), rgba(52, 211, 153, 0.42));
+  }
+
+  .experience-role {
+    position: relative;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 12px;
+    background:
+      linear-gradient(145deg, rgba(17, 28, 49, 0.82), rgba(9, 20, 38, 0.94));
+    padding: clamp(1rem, 3vw, 1.35rem);
+    box-shadow: 0 16px 42px rgba(2, 6, 23, 0.18);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .experience-role::before {
+    content: "";
+    position: absolute;
+    top: 1.25rem;
+    left: calc(-1.15rem - 5px);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.66);
+  }
+
+  .experience-role h3 {
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+  }
+
+  .role-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.8rem;
+    margin: 0 0 0.9rem;
+  }
+
+  .role-company {
+    color: var(--heading);
+    font-weight: 700;
+  }
+
+  .role-detail {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .role-detail::before {
+    content: "/";
+    color: rgba(148, 163, 184, 0.55);
+    margin-right: 0.8rem;
+  }
+
+  .experience-role ul {
+    margin-bottom: 0;
+  }
+
+  .resume-actions {
+    margin-bottom: 1.25rem;
+  }
+
+  .resume-actions .btn:hover {
+    border-color: var(--accent-2);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(52, 211, 153, 0.16));
+    box-shadow: 0 16px 38px rgba(14, 165, 233, 0.18);
+    color: var(--heading);
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  .resume-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+
+  .resume-card {
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 12px;
+    background:
+      linear-gradient(145deg, rgba(17, 28, 49, 0.82), rgba(9, 20, 38, 0.94));
+    padding: clamp(1rem, 3vw, 1.25rem);
+    box-shadow: 0 16px 42px rgba(2, 6, 23, 0.18);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .resume-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+  }
+
+  .resume-card p {
+    margin: 0.25rem 0;
+  }
+
+  .resume-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin: 1rem 0 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .resume-chip-list li {
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.56);
+    color: var(--muted);
+    padding: 0.42rem 0.72rem;
+    line-height: 1.25;
+  }
+
+  @media (max-width: 700px) {
+    .experience-list {
+      padding-left: 0.9rem;
+    }
+
+    .experience-role::before {
+      left: calc(-0.9rem - 5px);
+    }
+
+    .role-meta {
+      display: grid;
+      gap: 0.15rem;
+    }
+
+    .role-detail::before {
+      content: none;
+    }
+  }
+</style>
+
+<p class="resume-actions">
   <a
+    class="btn btn-primary"
     href="/Vinula_Kasthuriarachchi_Resume.pdf"
     target="_blank"
+    rel="noreferrer"
   >
     Download PDF Resume
   </a>
@@ -33,85 +192,181 @@ identity security improvements, and cyber risk reduction initiatives.
 
 <h2>Experience</h2>
 
-<h3>Cyber Security Volunteer</h3>
+<section class="experience-list" aria-label="Professional experience">
+  <article class="experience-role">
+    <h3>Cyber Security Volunteer</h3>
+    <p class="role-meta">
+      <span class="role-company">National Railway Museum</span>
+      <span class="role-detail">Adelaide, Australia</span>
+      <span class="role-detail">March 2026 – Present</span>
+    </p>
 
-<p><strong>National Railway Museum</strong></p>
+    <ul>
+      <li>Conducting cybersecurity assessments across operational IT environments, identifying risks related to network architecture, access control, infrastructure exposure, and operational dependencies.</li>
+      <li>Developed asset inventories, software application inventories, network topology documentation, and stakeholder-friendly infrastructure diagrams across servers, NAS systems, CCTV infrastructure, workstations, and networking equipment.</li>
+      <li>Designed a proposed segmented network architecture separating User, Server, and CCTV environments, including conceptual traffic restriction and access control logic.</li>
+      <li>Collaborated with stakeholders and external service providers to support VLAN-based segmentation planning, Sophos firewall architecture review, infrastructure validation, and implementation preparation.</li>
+      <li>Assessed identity and access management practices, reviewed MFA adoption opportunities, and developed recommendations aligned with operational requirements.</li>
+      <li>Developed cybersecurity governance documentation including access management procedures, acceptable use standards, software governance controls, awareness material, validation documentation, and cybersecurity improvement roadmaps.</li>
+    </ul>
+  </article>
 
-<p>March 2026 – Present</p>
+  <article class="experience-role">
+    <h3>Team Member / Acting Assistant Department Manager Secondment</h3>
+    <p class="role-meta">
+      <span class="role-company">Woolworths Group</span>
+      <span class="role-detail">Adelaide, Australia</span>
+      <span class="role-detail">October 2023 – Present</span>
+    </p>
 
-<ul>
-<li>Conducted cybersecurity posture assessments and infrastructure reviews</li>
-<li>Developed network segmentation architecture and implementation plans</li>
-<li>Performed asset discovery and dependency analysis</li>
-<li>Reviewed MFA coverage and identity security controls</li>
-<li>Created governance procedures and security documentation</li>
-<li>Supported stakeholder engagement and implementation planning</li>
-</ul>
+    <ul>
+      <li>Trusted to perform Acting Assistant Department Manager responsibilities during a 5-week secondment, supporting team coordination, task allocation, and operational decision-making.</li>
+      <li>Supported customer service, daily store operations, stock replenishment, and inventory management in a fast-paced retail environment.</li>
+      <li>Helped maintain operational standards, team communication, and customer service quality.</li>
+    </ul>
+  </article>
 
-<h3>Team Member</h3>
+  <article class="experience-role">
+    <h3>Software Engineering Consultant (Front-End Technologies)</h3>
+    <p class="role-meta">
+      <span class="role-company">Evolza</span>
+      <span class="role-detail">Colombo, Sri Lanka</span>
+      <span class="role-detail">March 2023 – July 2023</span>
+    </p>
 
-<p><strong>Woolworths Group</strong></p>
+    <ul>
+      <li>Delivered technical solutions and supported front-end development activities.</li>
+      <li>Facilitated client training sessions on system functionality and best practices.</li>
+      <li>Collaborated with stakeholders to translate business requirements into structured technical implementations.</li>
+      <li>Provided post-deployment support and process guidance to support operational stability.</li>
+    </ul>
+  </article>
 
-<ul>
-<li>Customer service and operational support</li>
-<li>Inventory management and daily store operations</li>
-<li>Acting ADM responsibilities when required</li>
-</ul>
+  <article class="experience-role">
+    <h3>Software Engineer Intern</h3>
+    <p class="role-meta">
+      <span class="role-company">Kavithi Group</span>
+      <span class="role-detail">Colombo, Sri Lanka</span>
+      <span class="role-detail">July 2022 – January 2023</span>
+    </p>
 
-<h3>Software Engineering Intern</h3>
+    <ul>
+      <li>Worked primarily as a Front-End Developer on company projects including ERPNext and the Blynxx Quiz App.</li>
+      <li>Supported front-end development, testing, and application improvement activities.</li>
+      <li>Collaborated with technical teams to deliver software features and improvements.</li>
+    </ul>
+  </article>
 
-<p><strong>Industrial Placement</strong></p>
+  <article class="experience-role">
+    <h3>Software Engineer Intern</h3>
+    <p class="role-meta">
+      <span class="role-company">iiH Solutions (Pvt) Ltd</span>
+      <span class="role-detail">Colombo, Sri Lanka</span>
+      <span class="role-detail">July 2020 – July 2021</span>
+    </p>
 
-<ul>
-<li>Software development and testing activities</li>
-<li>Requirements analysis and technical documentation</li>
-<li>Collaborated within development teams</li>
-</ul>
+    <ul>
+      <li>Worked in the Front-End Development team on the company project “Infirma”.</li>
+      <li>Developed front-end features using ReactJS.</li>
+      <li>Collaborated with development teams on software maintenance, testing, and feature implementation.</li>
+    </ul>
+  </article>
+
+  <article class="experience-role">
+    <h3>Customer Service Associate</h3>
+    <p class="role-meta">
+      <span class="role-company">Dialog Axiata PLC</span>
+      <span class="role-detail">Colombo, Sri Lanka</span>
+      <span class="role-detail">October 2017 – February 2018</span>
+    </p>
+
+    <ul>
+      <li>Managed high-volume customer interactions in a regulated telecommunications environment.</li>
+      <li>Supported customers with service enquiries and issue resolution.</li>
+      <li>Developed communication, problem-solving, and customer support skills.</li>
+    </ul>
+  </article>
+</section>
 
 <hr />
 
 <h2>Education</h2>
 
-<h3>Master of Information Technology (Cyber Security)</h3>
+<p class="section-intro">
+  Formal education and academic credentials supporting my cybersecurity and software engineering background.
+</p>
 
-<p>University of South Australia</p>
+<section class="resume-card-grid" aria-label="Education">
+  <article class="resume-card">
+    <h3>Master of Information Technology (Cyber Security)</h3>
 
-<p>International Merit Scholarship</p>
+    <p>University of South Australia</p>
 
-<p>Completed 2025</p>
+    <p>International Merit Scholarship</p>
 
-<h3>BEng (Hons) Software Engineering</h3>
+    <p>Completed 2025</p>
+  </article>
 
-<p>University of Westminster</p>
+  <article class="resume-card">
+    <h3>BEng (Hons) Software Engineering</h3>
 
-<p>Upper Second Class Honours (2:1)</p>
+    <p>University of Westminster</p>
+
+    <p>Upper Second Class Honours (2:1)</p>
+  </article>
+</section>
 
 <hr />
 
 <h2>Certifications & Learning</h2>
 
-<ul>
-<li>CompTIA Security+ (In Progress)</li>
-<li>Google Security Operations Certificate</li>
-<li>TryHackMe SOC Level 1 Path</li>
-<li>LetsDefend SOC Training</li>
+<p class="section-intro">
+  Current and completed learning that supports practical security operations, SOC, and defensive security capability.
+</p>
+
+<ul class="resume-chip-list">
+  <li>CompTIA Security+ (In Progress)</li>
+  <li>Google Security Operations Certificate</li>
+  <li>TryHackMe SOC Level 1 Path</li>
+  <li>LetsDefend SOC Training</li>
 </ul>
 
 <hr />
 
 <h2>Technical Skills</h2>
 
-<ul>
-<li>Network Security</li>
-<li>Identity & Access Management</li>
-<li>Cyber Risk Assessment</li>
-<li>Governance & Compliance</li>
-<li>NIST Cybersecurity Framework</li>
-<li>Microsoft Windows</li>
-<li>Active Directory</li>
-<li>Python</li>
-<li>Java</li>
-<li>SQL</li>
-</ul>
+<p class="section-intro">
+  Tools, platforms, and technical areas I use across security review, documentation, and implementation support.
+</p>
+
+<section class="resume-card-grid" aria-label="Technical skills">
+  <article class="resume-card">
+    <h3>Security</h3>
+    <ul class="resume-chip-list">
+      <li>Network Security</li>
+      <li>Identity & Access Management</li>
+      <li>Cyber Risk Assessment</li>
+      <li>Governance & Compliance</li>
+      <li>NIST Cybersecurity Framework</li>
+    </ul>
+  </article>
+
+  <article class="resume-card">
+    <h3>Systems & Platforms</h3>
+    <ul class="resume-chip-list">
+      <li>Microsoft Windows</li>
+      <li>Active Directory</li>
+    </ul>
+  </article>
+
+  <article class="resume-card">
+    <h3>Programming & Data</h3>
+    <ul class="resume-chip-list">
+      <li>Python</li>
+      <li>Java</li>
+      <li>SQL</li>
+    </ul>
+  </article>
+</section>
 
 </MainLayout>

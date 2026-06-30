@@ -2,7 +2,10 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Vinula Kasthuriarachchi">
+<MainLayout
+  title="Vinula Kasthuriarachchi"
+  description="Cybersecurity graduate portfolio of Vinula Kasthuriarachchi, focused on security operations, infrastructure security, cyber risk, governance, and practical cybersecurity uplift work."
+>
 
 <section class="hero-container">
   <img
@@ -16,23 +19,25 @@ import MainLayout from "../layouts/MainLayout.astro";
 
     <p class="subtitle">Cybersecurity Graduate</p>
 
-    <p>
-      Infrastructure Security • Security Operations • Cyber Risk & Governance
-    </p>
+    <ul class="hero-focus-list" aria-label="Portfolio focus areas">
+      <li>Infrastructure Security</li>
+      <li>Security Operations</li>
+      <li>Cyber Risk & Governance</li>
+    </ul>
 
     <p>
       Currently supporting a real-world cybersecurity uplift program at the National Railway Museum, focusing on network security, governance, and infrastructure protection.
     </p>
 
     <div class="hero-buttons">
-      <a href="/Vinula_Kasthuriarachchi_Resume.pdf" target="_blank" class="btn">
+      <a href="/Vinula_Kasthuriarachchi_Resume.pdf" target="_blank" rel="noreferrer" class="btn btn-primary">
         Download Resume
       </a>
     </div>
   </div>
 </section>
 
-<section>
+<section class="content-panel">
   <h2>About Me</h2>
 
   <p>
@@ -56,7 +61,7 @@ import MainLayout from "../layouts/MainLayout.astro";
   </p>
 </section>
 
-<section>
+<section class="feature-card">
   <h2>Featured Project</h2>
 
   <h3>National Railway Museum Cybersecurity Uplift Program</h3>
@@ -67,13 +72,17 @@ import MainLayout from "../layouts/MainLayout.astro";
     assessment, and stakeholder engagement.
   </p>
 
-  <a href="/projects/nrm" class="btn">View Project</a>
+  <a href="/projects/nrm" class="btn btn-secondary">View Project</a>
 </section>
 
 <section>
   <h2>Core Skills</h2>
 
-  <ul>
+  <p class="section-intro">
+    Practical skills I use across cybersecurity assessment, infrastructure review, and governance work.
+  </p>
+
+  <ul class="skill-list">
     <li>NIST CSF</li>
     <li>Network Security</li>
     <li>Identity & Access Management</li>
