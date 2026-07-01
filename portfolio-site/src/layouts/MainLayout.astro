@@ -1141,6 +1141,7 @@ const isActive = (href: string) =>
       const scrollBtn = document.getElementById("scrollTopBtn");
       const navToggle = document.querySelector(".nav-toggle");
       const navLinks = document.querySelector(".nav-links");
+      const resumeDownloadFile = "Vinula_Kasthuriarachchi_Resume.pdf";
 
       // Keep the mobile menu state synced for mouse, keyboard, and link navigation.
       const closeNav = () => {
@@ -1179,6 +1180,38 @@ const isActive = (href: string) =>
           top: 0,
           behavior: "smooth"
         });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          event.defaultPrevented ||
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        ) {
+          return;
+        }
+
+        const resumeLink = event.target instanceof Element
+          ? event.target.closest("[data-open-and-download]")
+          : null;
+
+        if (!(resumeLink instanceof HTMLAnchorElement)) {
+          return;
+        }
+
+        event.preventDefault();
+        window.open(resumeLink.href, "_blank", "noopener,noreferrer");
+
+        const downloadLink = document.createElement("a");
+        downloadLink.href = resumeLink.href;
+        downloadLink.download = resumeLink.download || resumeDownloadFile;
+        downloadLink.style.display = "none";
+        document.body.append(downloadLink);
+        downloadLink.click();
+        downloadLink.remove();
       });
     </script>
   </body>
