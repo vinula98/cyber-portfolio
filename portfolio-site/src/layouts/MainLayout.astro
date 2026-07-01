@@ -660,7 +660,17 @@ const isActive = (href: string) =>
         margin-top: 1rem;
       }
 
+      .contact-grid-primary {
+        grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(220px, 0.8fr));
+      }
+
+      .contact-details-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+      }
+
       .contact-card {
+        display: flex;
+        flex-direction: column;
         border: 1px solid var(--line);
         border-radius: 12px;
         background: var(--surface);
@@ -673,6 +683,47 @@ const isActive = (href: string) =>
         align-items: center;
         gap: 0.6rem;
         margin-top: 0;
+      }
+
+      .contact-card h2.has-icon::before {
+        content: none;
+      }
+
+      .contact-card p {
+        margin-bottom: 1rem;
+      }
+
+      .contact-card .btn {
+        margin-top: auto;
+      }
+
+      .contact-card-primary {
+        background:
+          linear-gradient(145deg, rgba(7, 26, 61, 0.9), rgba(10, 20, 36, 0.96));
+        border-color: rgba(56, 189, 248, 0.28);
+      }
+
+      .contact-heading {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .contact-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(56, 189, 248, 0.22);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.58);
+        color: var(--accent);
+      }
+
+      .contact-icon svg {
+        width: 18px;
+        height: 18px;
       }
 
       #scrollTopBtn {
@@ -719,20 +770,27 @@ const isActive = (href: string) =>
 
       .footer-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.4fr) minmax(180px, 0.8fr) minmax(180px, 0.8fr);
-        gap: 1.25rem;
+        grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+        gap: clamp(1.25rem, 4vw, 2rem);
         align-items: start;
       }
 
       .footer-brand {
         margin-top: 0;
+        margin-bottom: 0.55rem;
         color: var(--heading);
         font-weight: 800;
+      }
+
+      .footer-summary {
+        max-width: 560px;
+        margin: 0;
       }
 
       .footer-links {
         display: flex;
         flex-wrap: wrap;
+        justify-content: flex-end;
         gap: 0.55rem 0.9rem;
       }
 
@@ -743,6 +801,44 @@ const isActive = (href: string) =>
 
       .footer-links a:hover {
         color: var(--heading);
+      }
+
+      .footer-actions {
+        display: grid;
+        justify-items: end;
+        gap: 1rem;
+      }
+
+      .footer-social {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.65rem;
+      }
+
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.58);
+        color: var(--muted);
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .footer-social a:hover {
+        border-color: rgba(52, 211, 153, 0.48);
+        background: rgba(56, 189, 248, 0.12);
+        color: var(--heading);
+        text-decoration: none;
+        transform: translateY(-2px);
+      }
+
+      .footer-social svg {
+        width: 19px;
+        height: 19px;
       }
 
       .footer-meta {
@@ -882,6 +978,23 @@ const isActive = (href: string) =>
           width: 46px;
           height: 46px;
         }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-actions {
+          justify-items: start;
+        }
+
+        .footer-summary {
+          max-width: none;
+        }
+
+        .footer-links {
+          display: flex;
+          justify-content: flex-start;
+        }
       }
 
       @media (max-width: 520px) {
@@ -919,9 +1032,12 @@ const isActive = (href: string) =>
           margin-top: 0;
         }
 
-        .footer-grid,
-        .footer-links {
+        .footer-grid {
           display: grid;
+        }
+
+        .footer-links {
+          display: flex;
         }
 
         .footer-meta {
@@ -970,20 +1086,48 @@ const isActive = (href: string) =>
       <div class="footer-grid">
         <div>
           <p class="footer-brand">Vinula Kasthuriarachchi</p>
-          <p>Cybersecurity graduate portfolio focused on infrastructure security, risk, governance, and practical uplift work.</p>
+          <p class="footer-summary">Cybersecurity graduate portfolio focused on infrastructure security, risk, governance, and practical uplift work.</p>
         </div>
 
-        <nav class="footer-links" aria-label="Footer navigation">
-          {navItems.map((item) => (
-            <a href={item.href}>{item.label}</a>
-          ))}
-        </nav>
+        <div class="footer-actions">
+          <nav class="footer-links" aria-label="Footer navigation">
+            {navItems.map((item) => (
+              <a href={item.href}>{item.label}</a>
+            ))}
+          </nav>
 
-        <div class="footer-links" aria-label="Contact links">
-          <a href="https://www.linkedin.com/in/vinula-kasthuriarachchi-7b3130154" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com/vinula98" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="mailto:vinulakas.98@gmail.com">Email</a>
-          <a href="tel:+61404781574">Mobile</a>
+          <div class="footer-social" aria-label="Contact links">
+            <a
+              href="https://www.linkedin.com/in/vinula-kasthuriarachchi-7b3130154"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path d="M6.94 8.98H3.56V20h3.38V8.98ZM5.25 4C4.16 4 3.3 4.8 3.3 5.82c0 1.04.86 1.84 1.95 1.84s1.95-.8 1.95-1.84C7.2 4.8 6.34 4 5.25 4ZM20.7 13.67c0-3.16-1.69-4.98-4.25-4.98-1.78 0-2.72.98-3.19 1.66V8.98H9.88V20h3.38v-5.82c0-1.55.74-2.47 2-2.47 1.17 0 1.73.84 1.73 2.47V20h3.38v-6.33h.33Z" />
+              </svg>
+            </a>
+
+            <a
+              href="https://github.com/vinula98"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path d="M12 2.25A9.76 9.76 0 0 0 8.91 21.27c.49.09.67-.21.67-.47v-1.69c-2.73.6-3.31-1.17-3.31-1.17-.45-1.14-1.09-1.44-1.09-1.44-.89-.61.07-.6.07-.6.98.07 1.5 1.01 1.5 1.01.88 1.5 2.3 1.07 2.86.82.09-.64.34-1.07.62-1.32-2.18-.25-4.47-1.09-4.47-4.85 0-1.07.38-1.94 1-2.63-.1-.25-.44-1.25.1-2.6 0 0 .82-.26 2.68 1 .78-.22 1.62-.33 2.46-.33.84 0 1.68.11 2.46.33 1.86-1.26 2.68-1 2.68-1 .54 1.35.2 2.35.1 2.6.63.69 1 1.56 1 2.63 0 3.77-2.3 4.59-4.49 4.84.35.31.66.91.66 1.83v2.57c0 .26.18.57.68.47A9.76 9.76 0 0 0 12 2.25Z" />
+              </svg>
+            </a>
+
+            <a href="mailto:vinulakas.98@gmail.com" aria-label="Email" title="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 
