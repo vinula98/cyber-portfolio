@@ -1,9 +1,9 @@
 ---
-title: "National Railway Museum Cybersecurity Uplift Program"
-description: "Real-world cybersecurity uplift initiative covering infrastructure security, network segmentation planning, identity security, governance development, and stakeholder engagement."
+title: "Cybersecurity Improvement Program — National Railway Museum"
+description: "Ongoing cybersecurity improvement program translating assessment findings into practical controls across network segmentation, firewall validation, IAM, incident response, software governance, and vendor coordination."
 ---
 
-# National Railway Museum Cybersecurity Uplift Program
+# Cybersecurity Improvement Program — National Railway Museum
 
 ## Project Overview
 
@@ -11,429 +11,168 @@ description: "Real-world cybersecurity uplift initiative covering infrastructure
 
 **Location:** Port Adelaide, South Australia
 
-**Role:** Cybersecurity Volunteer – Infrastructure Security, IAM & Governance
+**Role:** Cyber Security Volunteer — Infrastructure Security, IAM & Governance
 
 **Project Duration:** March 2026 – Present
 
-**Last Updated:** July 2026
+**Earlier Engagement:** Cybersecurity Risk Analyst, university capstone team, 2025
+
+**Last Updated:** August 2026
 
 ---
 
 ## Project Highlights
 
-- Developed 15+ cybersecurity deliverables including inventories, architecture diagrams, governance procedures, MFA assessments, and implementation planning documentation
-- Developed technology asset inventory covering critical systems
-- Analysed infrastructure dependencies and communication flows
-- Designed proposed segmented network architecture covering User, Server, and CCTV zones
-- Produced governance and operational security documentation
-- Conducted MFA readiness assessment
-- Supported implementation planning with external technology providers
+- Progressed the museum from cybersecurity assessment and planning toward practical implementation across network segmentation, MFA, access governance, software control, incident response, and asset visibility
+- Designed a practical segmented network model for user, server/archive, and CCTV environments
+- Coordinated with the external managed service provider on Sophos firewall requirements, then validated newly configured isolated interfaces before production migration
+- Developed current-state, CCTV, and proposed segmented architecture diagrams using sanitised, stakeholder-friendly documentation
+- Built an asset and software governance foundation including inventories, audit planning, and a 10-worksheet software audit workbook
+- Authored practical governance artefacts covering access privilege management, joiner-mover-leaver access, acceptable use, third-party software restriction, MFA rollout, and incident response
+- Created a cyber incident response playbook supported by seven workflow diagrams for non-technical and operational users
 
 ---
 
-## Executive Summary
+## Challenge
 
-The National Railway Museum Cybersecurity Uplift Program is an ongoing cybersecurity improvement initiative focused on strengthening the museum's cybersecurity posture through practical, risk-based security improvements.
+The National Railway Museum manages operational systems, member and volunteer information, financial platforms, a public website, CCTV infrastructure, and a significant historical archive. Its environment must remain usable for volunteers with varied levels of technical confidence.
 
-Working within a volunteer-driven non-profit environment, I contributed to cybersecurity assessment activities, infrastructure analysis, network segmentation planning, identity and access security improvements, governance development, security awareness initiatives, and implementation planning.
+The initial environment included a largely flat network, an unmanaged network switch, limited MFA coverage, incomplete software and access visibility, shared or operationally sensitive systems, and legacy technology considerations. The core challenge was not to propose enterprise-scale tooling, but to identify and support controls that reduced risk without disrupting museum operations.
 
-The project evolved from an initial cybersecurity review into a broader security uplift initiative aimed at improving visibility, reducing risk, supporting future technical improvements, and establishing a stronger cybersecurity foundation suitable for the organisation's operational and resource constraints.
-
----
-
-## Background
-
-The National Railway Museum operates a diverse technology environment supporting business operations, volunteer activities, archive systems, storage infrastructure, networking equipment, and CCTV systems.
-
-Like many small and non-profit organisations, the museum faces unique cybersecurity challenges. Security improvements must balance risk reduction against operational practicality, budget limitations, volunteer availability, legacy technology, and ease of use.
-
-An initial review of the environment identified opportunities to improve visibility, governance, network security, identity security, and documentation. This led to the development of a broader cybersecurity uplift initiative focused on delivering practical and sustainable improvements.
-
----
-
-## Challenges Identified
-
-During the initial assessment, several cybersecurity and operational challenges were identified.
-
-### Infrastructure Visibility
-
-Limited centralised documentation existed for technology assets, infrastructure dependencies, and network architecture. This made it difficult to assess risk, prioritise improvements, and support future planning activities.
-
-### Network Architecture
-
-The environment operated with limited network segmentation, increasing opportunities for unnecessary communication between systems and creating potential pathways for lateral movement in the event of a compromise.
-
-### Identity Security
-
-Multi-Factor Authentication (MFA) was implemented on some critical systems, however opportunities existed to expand coverage and strengthen protection of administrative and internet-facing accounts.
-
-### Governance and Documentation
-
-Formal cybersecurity procedures, user guidance, and operational security documentation were limited. Additional governance material was required to support secure day-to-day operations and improve cybersecurity awareness.
-
-### Volunteer Workforce Considerations
-
-As a volunteer-driven organisation, security recommendations needed to be practical, cost-effective, easy to understand, and realistic to maintain over time.
+The public portfolio story spans two connected phases. In 2025, I contributed as part of a four-person university capstone team that assessed the museum's cybersecurity posture and developed a practical improvement framework and roadmap. In 2026, I returned independently as a Cyber Security Volunteer to help translate those recommendations into technical validation, operational procedures, governance documentation, and implementation preparation.
 
 ---
 
 ## Approach
 
-The project followed a structured cybersecurity improvement approach focused on understanding the environment, identifying risks, improving visibility, and developing practical security recommendations.
+The engagement followed a practical improvement flow:
 
-The engagement included:
+**Assess → Design → Validate → Formalise → Sustain**
 
-* Cybersecurity posture assessment
-* Asset discovery and infrastructure analysis
-* Network mapping and dependency analysis
-* Network segmentation planning
-* MFA assessment and identity security review
-* Software and application governance review
-* Security procedure development
-* Security awareness material creation
-* Stakeholder engagement and implementation planning
+**Assess:** Document assets, software, operational dependencies, current network design, risks, and control gaps.
 
-The objective was not simply to identify risks, but to produce practical deliverables that could support future implementation activities.
+**Design:** Create segmentation models, access rules, MFA priorities, governance controls, and migration planning artefacts.
 
----
+**Validate:** Test newly configured firewall interfaces, addressing, gateway reachability, connectivity behaviour, and migration prerequisites.
 
-## Project Timeline
+**Formalise:** Develop procedures, playbooks, inventories, rule matrices, audit workbooks, and user-friendly security guidance.
 
-### March 2026 — Initial Assessment and Environment Discovery
-
-* Completed volunteer onboarding and stakeholder engagement
-* Conducted initial cybersecurity posture assessment
-* Reviewed existing technology environment
-* Identified key cybersecurity risks and improvement opportunities
-* Began asset discovery and infrastructure analysis
-* Established project objectives and scope
-
-### April 2026 — Infrastructure Analysis and Documentation
-
-* Developed technology asset inventory
-* Documented infrastructure components and critical systems
-* Performed dependency mapping and communication path analysis
-* Created infrastructure documentation and environment diagrams
-* Reviewed operational systems and technology dependencies
-* Improved visibility of technology assets and infrastructure relationships
-
-### May 2026 — Network Security Assessment and Segmentation Planning
-
-* Conducted current-state network architecture review
-* Analysed communication flows between systems
-* Reviewed CCTV environment and associated infrastructure
-* Developed proposed network segmentation architecture
-* Designed user, server, and CCTV security zones
-* Created segmentation rules and communication logic
-* Prepared implementation planning documentation
-
-### May–June 2026 — Identity and Access Security Review
-
-* Assessed existing MFA coverage across organisational systems
-* Reviewed administrative and internet-facing accounts
-* Identified authentication improvement opportunities
-* Developed MFA expansion recommendations
-* Considered operational constraints and volunteer workforce requirements
-* Produced authentication improvement roadmap
-
-### June 2026 — Software Governance and Security Documentation
-
-* Developed software and application inventory
-* Documented application ownership and business criticality
-* Recorded MFA status and internet exposure information
-* Created governance documentation to support future risk management
-* Improved visibility of software and operational systems
-
-### June–July 2026 — Governance and Security Awareness Development
-
-* Developed Acceptable Use Procedure
-* Developed Access Privilege Management Procedure
-* Developed Third-Party Software Restriction Procedure
-* Updated Internet and Computer Use Agreement
-* Created cybersecurity awareness material for staff and volunteers
-* Produced practical guidance covering passwords, phishing, USB usage, and software security
-
-### July 2026 – Present — Implementation Support and Continuous Improvement
-
-* Supported implementation planning activities
-* Participated in stakeholder and vendor discussions
-* Assisted with infrastructure validation activities
-* Supported future network segmentation planning
-* Continued cybersecurity uplift initiatives
-* Maintained and refined project documentation
-* Provided ongoing cybersecurity advisory support
+**Sustain:** Support ownership, periodic review, access lifecycle practices, software maintenance, stakeholder decisions, and continuous improvement.
 
 ---
 
 ## Key Deliverables
 
-### Asset Discovery and Infrastructure Analysis
+### Network Segmentation and Firewall Validation
 
-A significant component of the project focused on improving visibility of the museum's technology environment.
+The project progressed from documenting flat-network risk to preparing a practical segmented network model. I designed the target security zones, translated operational dependencies into communication logic, and coordinated requirements with the external provider.
 
-Activities included:
+The provider performed the authorised Sophos firewall configuration. My contribution focused on requirements, coordination, review, controlled testing, and validation.
 
-* Asset identification
-* Infrastructure categorisation
-* Critical asset review
-* System dependency analysis
-* Infrastructure documentation
-* Operational system review
+Status:
 
-To support future planning and risk analysis, structured inventories were developed covering technology assets, software platforms, infrastructure components, and operational dependencies.
-
-This work established a clearer understanding of how systems interacted and which assets required additional protection.
-
----
-
-## Supporting Evidence
-
-The following artefacts were developed as part of the National Railway Museum Cybersecurity Uplift Program.
-
----
-
-### Infrastructure Documentation
-
-**Evidence Available:**
-
-* Technology Asset Inventory
-* Infrastructure Inventory
-* Software and Application Inventory
-* Infrastructure Analysis Documentation
-* Critical Asset Identification Records
-* System Dependency Mapping Documentation
-
----
-
-### Network Security
-
-**Evidence Available:**
-
-* Current-State Network Diagram
-* CCTV Infrastructure Diagram
-* Network Architecture Review Documentation
-* Proposed Network Segmentation Architecture
-* Segmentation Rules and Communication Logic
-* Infrastructure Validation Notes
-* Network Implementation Planning Documentation
-
-#### Network Segmentation Architecture
-
-One of the primary security improvements developed during the project was a proposed network segmentation architecture designed to reduce lateral movement risks and improve protection of critical systems.
+* Current network diagram — completed
+* CCTV architecture diagram — completed
+* Proposed segmented architecture — completed
+* Inter-zone communication/rules matrix — completed
+* Infrastructure and switch validation — completed
+* Sophos segmented-interface testing — successfully validated
+* CCTV/server production migration — prepared as a controlled pending/follow-on activity
 
 ![Proposed Network Segmentation Architecture](/images/nrm/proposed-network-segmented-design.png)
 
----
+### Asset and Software Governance
 
-### Identity and Access Security
+I developed structured records to improve visibility of technology assets, applications, operational dependencies, ownership questions, and software risk.
 
-**Evidence Available:**
+Status:
 
-* MFA Assessment Documentation
-* Authentication Review Notes
-* Administrative Account Review Documentation
-* MFA Expansion Recommendations
-* Identity Security Improvement Roadmap
+* Asset inventory — completed and designed to remain a living record
+* Software & Application Audit Plan — completed
+* Software Audit Workbook — completed with 10 structured worksheets
+* Software & Application Inventory — draft/living inventory
+* Third-Party Software Restriction Procedure — draft completed
 
----
+### MFA and Access Governance
 
-### Software Governance
+I reviewed authentication and access practices, then developed governance artefacts suited to a volunteer-heavy organisation.
 
-**Evidence Available:**
+Status:
 
-* Software and Application Inventory
-* Application Governance Review
-* Business Criticality Assessment Records
-* Internet Exposure Assessment Documentation
-* Software Ownership Register
+* MFA readiness and rollout plan — completed, with implementation phased
+* Access Privilege Management Procedure — draft completed
+* Joiner-Mover-Leaver Access Management Procedure — in development/draft
+* Administrative, privileged, and internet-facing account review — completed as part of the assessment and planning work
 
----
+### Incident Response Capability
 
-### Governance and Procedures
+I authored a practical Cyber Incident Response Playbook to help the museum respond consistently during security events.
 
-**Evidence Available:**
+The playbook covers incident identification, reporting, triage, escalation, containment, recovery, evidence handling, stakeholder notification, vendor escalation, and post-incident review. It includes seven workflow diagrams to make the process easier for non-technical users to follow under pressure.
 
-* Acceptable Use Procedure
-* Access Privilege Management Procedure
-* Third-Party Software Restriction Procedure
-* Updated Internet and Computer Use Agreement
-* Operational Security Guidance Documentation
+Status:
 
----
+* Cyber Incident Response Playbook — draft completed
+* Supporting workflow diagrams — completed as part of the draft playbook
 
-### Security Awareness
+### Stakeholder and Vendor Coordination
 
-**Evidence Available:**
-
-* Cybersecurity Awareness Guide
-* Password Security Guidance
-* Phishing Awareness Material
-* Safe Internet Usage Guidance
-* USB Security Guidance
-* Software Installation Guidance
-* Suspicious Activity Reporting Guidance
-
----
-
-### Stakeholder Engagement and Project Planning
-
-**Evidence Available:**
-
-* Project Planning Documentation
-* Requirements Gathering Notes
-* Stakeholder Review Documentation
-* Implementation Planning Records
-* Vendor Engagement Support Material
-* Security Improvement Roadmap
-
----
-
-### Photographic and Visual Evidence
-
-**Evidence Available:**
-
-* Infrastructure Photographs
-* Network Equipment Photographs
-* Site Assessment Evidence
-* Project Working Documentation
-* Technical Diagram Collection
-
----
-
-### Network Architecture Review and Segmentation Planning
-
-The existing network environment was reviewed to better understand communication paths, infrastructure relationships, and potential security improvement opportunities.
-
-Network mapping activities included:
-
-* Infrastructure documentation
-* Current-state network review
-* CCTV environment review
-* Dependency mapping
-* Communication path analysis
-
-Using this information, a future-state segmented architecture was designed to logically separate user devices, server infrastructure, and CCTV systems into distinct security zones.
-
-The proposed design aimed to:
-
-* Reduce unnecessary exposure
-* Limit lateral movement opportunities
-* Improve separation of critical systems
-* Support more granular access control
-* Improve long-term network security management
-
-To support future implementation activities, segmentation rules, communication logic, infrastructure validation reviews, and implementation preparation notes were also developed.
-
----
-
-### Identity and Access Security
-
-An assessment of identity and authentication controls was conducted across multiple systems used by the organisation.
-
-The review focused on:
-
-* Existing MFA coverage
-* Administrative accounts
-* Internet-facing systems
-* Operational constraints
-* User adoption considerations
-
-Recommendations were developed to support staged MFA expansion while balancing security improvements against usability and volunteer workforce requirements.
-
-This work contributed to a practical roadmap for strengthening authentication controls and reducing credential-related risk.
-
----
-
-### Software and Application Governance
-
-A structured software and application inventory was developed to improve visibility and support governance activities.
-
-Documented information included:
-
-* Application ownership
-* Business criticality
-* MFA status
-* Internet exposure
-* Operational use cases
-* Security considerations
-
-This inventory provided a foundation for future governance, risk management, software review, and security improvement activities.
-
----
-
-### Cybersecurity Governance Development
-
-A suite of governance documents was developed to strengthen cybersecurity expectations and provide practical guidance for staff and volunteers.
-
-Key deliverables included:
-
-#### Acceptable Use Procedure
-
-Guidance covering password practices, internet usage, email security, USB usage, software installation restrictions, and reporting suspicious activity.
-
-#### Access Privilege Management Procedure
-
-Guidance covering least privilege principles, onboarding, offboarding, access reviews, and administrative account management.
-
-#### Third-Party Software Restriction Procedure
-
-Guidance covering software approval processes, browser extensions, remote access software, freeware controls, and software governance expectations.
-
-#### Updated Internet and Computer Use Agreement
-
-Modernisation of the museum's existing user agreement to better reflect modern cybersecurity expectations, including MFA usage, phishing awareness, software restrictions, USB security, monitoring expectations, and cybersecurity responsibilities.
-
----
-
-### Security Awareness Initiative
-
-To complement the governance work, a cybersecurity awareness guide was developed for staff and volunteers.
-
-Topics included:
-
-* Password security
-* Phishing awareness
-* Safe internet usage
-* USB security
-* Software installation guidance
-* Reporting suspicious activity
-
-The material was intentionally designed to be practical, non-technical, and accessible to users with varying levels of technical experience.
-
----
-
-## Stakeholder Engagement
-
-Throughout the engagement, collaboration with museum stakeholders played an important role in ensuring recommendations remained practical and aligned with operational requirements.
+Throughout the volunteer engagement, I acted as a bridge between cybersecurity planning, museum operations, and external technical support.
 
 Activities included:
 
-* Requirements gathering
-* Technical discussions
-* Documentation review
-* Validation workshops
-* Implementation planning
-* Vendor-related discussions
-
-Working directly with operational stakeholders strengthened my ability to communicate cybersecurity concepts in a clear and business-focused manner while balancing technical recommendations against organisational constraints.
+* Confirming priorities, constraints, and acceptable implementation windows
+* Translating findings into diagrams, checklists, procedures, and decision points
+* Preparing focused questions and evidence for the managed service provider
+* Following up on firewall changes, implementation dependencies, hardware limitations, and migration readiness
+* Scheduling technical work to minimise disruption to museum systems and CCTV operations
 
 ---
 
 ## Outcomes
 
-The project established a stronger cybersecurity foundation for the National Railway Museum by improving visibility, documenting infrastructure, identifying key risks, and preparing practical security improvements.
+The project has strengthened the museum's cybersecurity foundation by improving visibility, documenting dependencies, validating technical changes, and establishing practical governance artefacts.
 
-Key outcomes achieved through the project included:
+Concrete outcomes include:
 
-* Improved understanding of technology assets and infrastructure dependencies
-* Greater visibility of software and operational systems
-* Proposed network segmentation architecture for future implementation
-* MFA assessment and authentication improvement planning
-* Development of cybersecurity governance procedures
-* Creation of volunteer-friendly security awareness material
-* Support for future implementation planning and vendor discussions
+* Progressed the museum from a documented flat-network risk toward three separated security zones for user, server/archive, and CCTV environments
+* Successfully validated two newly configured isolated firewall interfaces before production migration
+* Produced at least three architecture/dependency views: current network, CCTV environment, and proposed segmented design
+* Developed a 10-page incident response playbook supported by seven workflow diagrams
+* Created a software-audit workbook with 10 structured worksheets
+* Established operational governance artefacts covering access, user lifecycle, acceptable use, software restriction, software inventory, MFA, and incident response
+* Converted vendor discussions into testable technical requirements and controlled migration checks
+* Balanced recognised security frameworks with the real constraints of a small not-for-profit and volunteer workforce
 
-The project demonstrated how meaningful cybersecurity improvements can be achieved through structured assessment, practical planning, stakeholder engagement, and governance development.
+Production migration of CCTV/server systems is prepared as a controlled follow-on activity and should not be described as complete until confirmed.
+
+---
+
+## Framework and Control Alignment
+
+The work was informed by recognised cybersecurity frameworks and privacy obligations, without claiming formal certification or full compliance.
+
+* **ASD Essential Eight:** MFA, software governance, patching and unsupported software considerations, administrative privilege restriction, backup validation, and practical maturity improvement
+* **NIST Cybersecurity Framework:** Asset Management; Identity Management, Authentication and Access Control; Platform Security; Incident Management; Incident Analysis; Incident Recovery; continuous improvement
+* **ISO/IEC 27001 principles:** Asset management, access control, acceptable use, operational security, supplier/third-party considerations, incident management, and continual improvement
+* **Australian privacy context:** Privacy Act 1988, Australian Privacy Principle 11, and consideration of Notifiable Data Breaches obligations
+
+---
+
+## Supporting Evidence
+
+The following public-facing evidence categories can be referenced without exposing sensitive configuration details:
+
+* Sanitised current-state, CCTV, and proposed segmentation diagrams
+* Asset and software inventory structures
+* Software audit workbook structure
+* Access privilege, acceptable use, third-party software, and joiner-mover-leaver procedure drafts
+* Cyber incident response playbook structure and workflow diagrams
+* MFA readiness and rollout planning notes
+* Migration readiness and validation checklists
+* Stakeholder and vendor coordination records
+
+Sensitive details such as internal IP ranges, gateway/DNS/DHCP addresses, firewall ports, usernames, remote-access methods, and detailed firewall rules should remain unpublished.
 
 ---
 
@@ -441,47 +180,39 @@ The project demonstrated how meaningful cybersecurity improvements can be achiev
 
 ### Governance, Risk and Compliance
 
-* Security assessment
-* Risk identification
-* Governance development
-* Security awareness
-* Access management controls
+* Cybersecurity assessment
+* Risk-based control prioritisation
+* Governance and procedure development
+* Framework-aligned documentation
+* Security awareness for non-technical audiences
 
 ### Infrastructure Security
 
 * Infrastructure analysis
 * Dependency mapping
 * Network architecture review
-* Network segmentation planning
+* Segmentation design
+* Firewall-interface and connectivity validation
 
 ### Identity and Access Management
 
-* MFA assessment
-* Authentication improvement planning
-* Administrative account review
+* MFA readiness assessment
+* Access lifecycle governance
+* Administrative and privileged access review
+* Practical access-control documentation
 
 ### Stakeholder Communication
 
-* Documentation development
-* Technical communication
-* Requirements gathering
-* Security awareness delivery
-
-### Project and Implementation Planning
-
-* Security improvement planning
-* Vendor coordination support
-* Roadmap development
-* Operational documentation
+* Vendor coordination
+* Requirements translation
+* Status reporting
+* Implementation planning
+* Technical writing for mixed audiences
 
 ---
 
-## Lessons Learned
+## Reflection
 
-One of the most valuable lessons from this engagement was that cybersecurity improvements are rarely purely technical challenges.
+This project strengthened my ability to balance technical security objectives with operational reality. The most effective recommendation was not always the most complex one; it was the control the museum could afford, understand, maintain, and verify.
 
-Effective security improvements must account for people, operational requirements, organisational maturity, available resources, and long-term sustainability.
-
-Working within a volunteer-driven non-profit environment reinforced the importance of balancing security objectives with usability, practicality, and stakeholder adoption.
-
-The experience strengthened my ability to assess real-world environments, communicate risk, develop security documentation, and contribute to cybersecurity improvement initiatives that support both organisational goals and security outcomes.
+I gained practical experience translating risk and framework requirements into network designs, validation steps, procedures, playbooks, inventories, and stakeholder decisions suited to a small, volunteer-led organisation.
