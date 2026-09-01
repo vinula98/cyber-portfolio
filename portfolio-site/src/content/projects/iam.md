@@ -11,13 +11,13 @@ description: "Assessment of MFA coverage, administrative accounts, and authentic
 
 **Organisation:** National Railway Museum
 
-**Role:** Cybersecurity Volunteer
+**Role:** Cyber Security Volunteer
 
 ---
 
 ## Executive Summary
 
-This project focused on strengthening identity security through the assessment of authentication controls, Multi-Factor Authentication (MFA) coverage, and administrative account security.
+This project focused on strengthening identity security through the assessment of authentication controls, Multi-Factor Authentication (MFA) coverage, administrative account security, and access governance.
 
 The objective was to identify practical opportunities to reduce credential-related risk while balancing operational requirements and user adoption considerations.
 
@@ -92,13 +92,15 @@ Activities included:
 - Authentication Review Notes
 - MFA Expansion Recommendations
 - Administrative Account Review
+- Access Privilege Management Procedure
+- Joiner-Mover-Leaver Access Management Procedure
 - Identity Security Improvement Roadmap
 
 ---
 
 ## Outcomes
 
-The project established a practical roadmap for improving authentication controls and reducing identity-related risk while considering operational constraints.
+The project established a practical roadmap for improving authentication controls and reducing identity-related risk while considering operational constraints. It also contributed access governance procedures to support least privilege, access reviews, and user lifecycle management.
 
 ---
 
@@ -107,6 +109,7 @@ The project established a practical roadmap for improving authentication control
 - Identity and Access Management
 - MFA Assessment
 - Administrative Account Review
+- Access Lifecycle Governance
 - Security Planning
 - Risk Assessment
 - Stakeholder Communication

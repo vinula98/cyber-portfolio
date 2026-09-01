@@ -1,6 +1,6 @@
 ---
 title: "Cyber Security Development Plan"
-description: "University capstone project that evolved into ongoing cybersecurity volunteering work."
+description: "University capstone project that established the foundation for ongoing cybersecurity volunteering work."
 ---
 
 # Cyber Security Development Plan
@@ -21,7 +21,7 @@ This capstone project involved developing a Cyber Security Development Plan for 
 
 The project focused on assessing cybersecurity risks, analysing organisational security maturity, identifying improvement opportunities, and developing a roadmap for strengthening cybersecurity capabilities.
 
-The project received a High Distinction and later evolved into ongoing cybersecurity volunteering work with the museum.
+The project received a High Distinction and later established the foundation for ongoing cybersecurity volunteering work with the museum.
 
 ---
 
@@ -74,7 +74,7 @@ Mapped security controls and improvement opportunities across multiple cybersecu
 
 The project provided a structured framework for improving cybersecurity maturity and reducing organisational risk.
 
-The work was later extended through ongoing volunteering activities that focused on implementation planning and security uplift initiatives.
+The work was later extended through ongoing volunteering activities focused on implementation planning, validation, and practical cybersecurity improvement.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Network Segmentation Architecture Design"
-description: "Infrastructure security project focused on reducing exposure and improving separation of critical systems."
+description: "Infrastructure security project focused on segmentation design, implementation planning, and validation of isolated network interfaces."
 ---
 
 # Network Segmentation Architecture Design
@@ -11,15 +11,15 @@ description: "Infrastructure security project focused on reducing exposure and i
 
 **Organisation:** National Railway Museum
 
-**Role:** Cybersecurity Volunteer
+**Role:** Cyber Security Volunteer
 
 ---
 
 ## Executive Summary
 
-This project focused on improving network security through the design of a segmented network architecture intended to reduce exposure, improve separation of critical systems, and limit opportunities for lateral movement.
+This project focused on improving network security through the design and validation of a segmented network architecture intended to reduce exposure, improve separation of critical systems, and limit opportunities for lateral movement.
 
-The work involved analysing the existing network environment, reviewing system dependencies, identifying communication requirements, and developing a proposed future-state architecture suitable for a non-profit environment.
+The work involved analysing the existing network environment, reviewing system dependencies, identifying communication requirements, developing a proposed future-state architecture, coordinating implementation requirements, and validating newly configured isolated firewall interfaces before production migration.
 
 ---
 
@@ -46,6 +46,8 @@ Activities included:
 - Current-state architecture review
 - Security zone design
 - Segmentation rule development
+- Firewall-interface validation
+- Migration-readiness planning
 
 ---
 
@@ -101,7 +103,7 @@ The design aimed to:
 - Proposed segmented architecture
 - Segmentation rules and communication logic
 - Infrastructure validation notes
-- Implementation planning documentation
+- Implementation planning and validation documentation
 
 ---
 
@@ -109,7 +111,7 @@ The design aimed to:
 
 The project produced a practical network segmentation model aligned with organisational requirements and infrastructure constraints.
 
-The proposed architecture established a foundation for future implementation activities and improved understanding of system relationships throughout the environment.
+The proposed architecture established clearer security zones, supported provider configuration requirements, and improved understanding of system relationships throughout the environment. Newly configured isolated server and CCTV interfaces were validated before production migration, with CCTV/server migration prepared as a controlled follow-on activity.
 
 ---
 
@@ -119,6 +121,7 @@ The proposed architecture established a foundation for future implementation act
 - Infrastructure Security
 - Dependency Mapping
 - Segmentation Design
+- Firewall-Interface Validation
 - Security Improvement Planning
 - Risk Analysis
 - Stakeholder Communication

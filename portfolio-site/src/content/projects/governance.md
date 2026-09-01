@@ -1,6 +1,6 @@
 ---
 title: "Cybersecurity Governance Development"
-description: "Development of security procedures, user guidance, and awareness material."
+description: "Development of security procedures, access governance, software controls, incident response guidance, and awareness material."
 ---
 
 # Cybersecurity Governance Development
@@ -11,13 +11,13 @@ description: "Development of security procedures, user guidance, and awareness m
 
 **Organisation:** National Railway Museum
 
-**Role:** Cybersecurity Volunteer
+**Role:** Cyber Security Volunteer
 
 ---
 
 ## Executive Summary
 
-This project focused on improving cybersecurity governance through the development of practical policies, procedures, user guidance, and security awareness material.
+This project focused on improving cybersecurity governance through the development of practical policies, procedures, incident response guidance, user guidance, and security awareness material.
 
 The objective was to establish a governance foundation suitable for a volunteer-driven organisation while improving security expectations, accountability, and awareness.
 
@@ -41,6 +41,7 @@ The project focused on:
 - Security awareness
 - Access management controls
 - Software governance
+- Incident response planning
 
 ---
 
@@ -67,6 +68,16 @@ Covered:
 - Access reviews
 - Administrative account management
 
+### Joiner-Mover-Leaver Access Management Procedure
+
+Covered:
+
+- Access approvals
+- Role changes
+- Offboarding
+- Remote and third-party access removal
+- Periodic access review
+
 ### Third-Party Software Restriction Procedure
 
 Covered:
@@ -76,6 +87,16 @@ Covered:
 - Remote access tools
 - Freeware controls
 - Software governance
+
+### Cyber Incident Response Playbook
+
+Covered:
+
+- Incident reporting
+- Triage and escalation
+- Containment and recovery
+- Evidence handling
+- Post-incident review
 
 ### Internet and Computer Use Agreement
 
@@ -106,7 +127,7 @@ Created awareness material covering:
 
 The project established a stronger governance foundation and improved cybersecurity guidance available to staff and volunteers.
 
-The resulting documentation supports future security improvement initiatives and helps promote more secure day-to-day practices.
+The resulting documentation supports practical security improvement initiatives and helps promote more secure day-to-day practices.
 
 ---
 
@@ -115,6 +136,7 @@ The resulting documentation supports future security improvement initiatives and
 - Governance Development
 - Policy Writing
 - Procedure Development
+- Incident Response Planning
 - Security Awareness
 - Risk Management
 - Stakeholder Communication
