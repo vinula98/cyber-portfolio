@@ -3,6 +3,8 @@ title: "Long Game"
 description: "A private investment research and planning application with auditable calculations and scheduled research."
 ---
 
+# Long Game
+
 Long Game is a personal web application for researching investments, recording portfolio activity, and planning regular contributions.
 
 ## How it works
